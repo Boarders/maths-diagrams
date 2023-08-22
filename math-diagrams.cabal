@@ -1,0 +1,65 @@
+cabal-version:      3.0
+category:           Languages
+build-type:         Simple
+name:               Math-Diagrams
+synopsis:           Haskell playground
+version:            0.1.0
+
+
+common defaults
+  build-depends:
+     base
+   , bytestring
+   , containers
+   , unordered-containers
+   , text
+   , mtl
+   , diagrams-lib
+   , diagrams-svg
+
+  default-language:
+    GHC2021
+
+  default-extensions:
+    PackageImports,
+    NoMonomorphismRestriction
+    TypeFamilies
+
+  ghc-options:
+    -Wall       
+    -Wincomplete-patterns
+
+executable first-iso
+  import:
+    defaults
+
+  main-is:
+    FirstIso.hs
+
+  ghc-options:
+    -rtsopts
+    -O2
+    -Wall
+    -Wincomplete-patterns
+
+  hs-source-dirs:
+    diagrams
+
+  build-depends:
+    Lib
+      
+Library Lib
+  import:
+    defaults
+
+  ghc-options:
+    -rtsopts
+    -O2
+    -Wall
+    -Wincomplete-patterns
+
+  hs-source-dirs:
+    src/
+
+  exposed-modules:
+
